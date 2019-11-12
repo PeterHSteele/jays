@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="<?php jays_background_image() ?>">
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -21,21 +21,21 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php
+				<?php/*
 				jays_posted_on();
 				jays_posted_by();
-				?>
+				*/?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php jays_post_thumbnail(); ?>
+	<!--<?php jays_post_thumbnail( 'large' ); ?>-->	
 
 	<div class="entry-content">
 		<?php
 		the_content( sprintf(
 			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
+				 //translators: %s: Name of current post. Only visible to screen readers 
 				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'jays' ),
 				array(
 					'span' => array(
@@ -50,10 +50,11 @@
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'jays' ),
 			'after'  => '</div>',
 		) );
+		
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<!--<footer class="entry-footer">
 		<?php jays_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

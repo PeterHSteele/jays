@@ -118,7 +118,7 @@ if ( ! function_exists( 'jays_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function jays_post_thumbnail() {
+	function jays_post_thumbnail( $size ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -134,7 +134,7 @@ if ( ! function_exists( 'jays_post_thumbnail' ) ) :
 
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 			<?php
-			the_post_thumbnail( 'post-thumbnail', array(
+			the_post_thumbnail( $size, array(
 				'alt' => the_title_attribute( array(
 					'echo' => false,
 				) ),
@@ -144,5 +144,24 @@ if ( ! function_exists( 'jays_post_thumbnail' ) ) :
 
 		<?php
 		endif; // End is_singular().
+	}
+endif;
+
+if (! function_exists( 'jays_background_image' ) ) :
+	/**
+	 * Retrieves url for a background image.
+	 *
+	 * Used in <style> attribute to add featured image as a background to current post.
+	 */
+	function jays_background_image( ){
+		global $post;
+		$thumbnail = get_the_post_thumbnail_url( $post, 'large' );
+		if ( ! $thumbnail ){
+			$thumbnail = '';
+		}
+		echo sprintf( 
+			'background-image: url( %s );', 
+			esc_url( $thumbnail )
+		);
 	}
 endif;

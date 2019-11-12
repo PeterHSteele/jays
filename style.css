@@ -395,7 +395,7 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
+	color: white;
 	font-family: sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
@@ -614,12 +614,12 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: gold;
 }
 
-a:visited {
+/*a:visited {
 	color: purple;
-}
+}*/
 
 a:hover, a:focus, a:active {
 	color: midnightblue;
@@ -983,3 +983,128 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+/*
+====================
+Layout
+====================
+*/
+
+.site-main{
+	display: flex;
+	flex-flow: row wrap;
+	align-items: stretch;
+}
+
+.site-main article{
+	flex: 1 0 40%;
+}
+
+/*
+==================
+Custom Styles
+==================
+*/
+
+/* Header */
+
+/* Content */
+
+	/* Posts */
+
+.site-main article{
+	position: relative;
+	margin: 0;
+	/*padding: 2.5em 0;
+	transition: .3s all;*/
+	min-height: 300px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	transition: .3s flex;
+}
+
+.site-main article:hover{
+	flex: 1 0 60%;
+	border-bottom: 2px solid gold;
+}
+/*
+.site-main article:nth-child(odd):hover + article{
+	flex: 0 0 ;
+}
+
+.site-main article:nth-child(even):hover - article{
+	flex: 0 0 ;
+}
+*/
+.site-main article .post-thumbnail img{
+	width: 100%;
+	object-fit:cover;
+}
+
+.entry-header h1,
+.entry-header h2{
+
+	margin-top: 0;
+	text-align: center;
+}
+
+.entry-header h1 a,
+.entry-header h2 a{
+	background: rgba( 50,50, 50, .75);
+}
+
+.entry-container{
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.site-main > article:hover .entry-container{
+	/*top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	transition: all .3s;*/
+}
+
+.entry-content{
+	/*background: rgba( 50, 50, 50, .8);*/
+	color: white;
+	background: rgba( 50, 50, 50, .8);
+	width: 90%;
+	margin: 0 auto;
+	padding: 0 .5em;
+}
+
+.site-main > article:hover .entry-content{
+	
+}
+/*
+.entry-header,
+.entry-content{
+	transition: all .3s;
+	position: absolute;
+	/*width: 100%;
+	top: 40%;
+	text-align: center;
+}
+
+.entry-header{
+	right: 40%;
+}
+
+.entry-content{
+	left: 100%;
+}
+
+.entry-container:hover .entry-content{
+	left:0;
+}
+
+.entry-container:hover .entry-header{
+	right: 100%;
+}
+*/

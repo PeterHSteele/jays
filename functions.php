@@ -159,3 +159,15 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function jays_filter_images( $content ){
+
+	if ( in_the_loop() && is_main_query() ) {
+		//|<figure[\s\:d=\w\'_-"]+>[\s\d\w\'_-"“:;‘”’,\/.]+</figure>/
+		$pattern = '/<img[=\s\d\w\'_\-\(\)":,\/.]+>|<figure[=\s\d\w\'_\-\(\)":,\/.]+>[\s\d\w\'_\-"“:;‘”’,\/.]+<\/figure>/';
+		$content =  preg_replace( $pattern, '', $content );
+	}
+	return $content;
+}
+
+add_filter( 'the_content', 'jays_filter_images' );
+
