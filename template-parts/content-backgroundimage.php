@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying posts as flex boxes with background images
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'jays-image-post' ); ?> style="<?php jays_background_image() ?>">
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -29,7 +29,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php jays_post_thumbnail( 'large' ); ?>	
+	<!--<?php jays_post_thumbnail( 'large' ); ?>-->	
 
 	<div class="entry-content">
 		<?php

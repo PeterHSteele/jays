@@ -395,8 +395,8 @@ input,
 select,
 optgroup,
 textarea {
-	color: white;
-	font-family: sans-serif;
+	color: #404040;
+	font-family: 'Nunito' , sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -639,7 +639,7 @@ a:hover, a:active {
 .main-navigation {
 	clear: both;
 	display: block;
-	float: left;
+	float: right;
 	width: 100%;
 }
 
@@ -684,6 +684,7 @@ a:hover, a:active {
 }
 
 .main-navigation a {
+	padding: .5em;
 	display: block;
 	text-decoration: none;
 }
@@ -994,10 +995,12 @@ Layout
 	display: flex;
 	flex-flow: row wrap;
 	align-items: stretch;
+	background: #eee;
 }
 
 .site-main article{
-	flex: 1 0 40%;
+	margin: .5%;
+	flex: 1 0 32.33%;
 }
 
 /*
@@ -1008,22 +1011,27 @@ Custom Styles
 
 /* Header */
 
+.site-header{
+	background: midnightblue;
+}
+
 /* Content */
 
 	/* Posts */
 
 .site-main article{
-	position: relative;
-	margin: 0;
-	/*padding: 2.5em 0;
-	transition: .3s all;*/
-	min-height: 300px;
-	background-repeat: no-repeat;
-	background-size: cover;
-	transition: .3s flex;
+	padding: 0 .5em;
+	
+	background: white;
 }
 
-.site-main article:hover{
+.site-main article.jays-image-post{
+	transition: .3s flex;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.site-main article.jays-image-post:hover{
 	flex: 1 0 60%;
 	border-bottom: 2px solid gold;
 }
@@ -1036,16 +1044,39 @@ Custom Styles
 	flex: 0 0 ;
 }
 */
+.site-main article .post-thumbnail{
+	
+}
+
+.site-main article .post-thumbnail:hover{
+
+}
+
 .site-main article .post-thumbnail img{
-	width: 100%;
+	/*box-shadow: 3px 3px 0px 0px orange,
+	6px 6px 0px 0px gold;*/
+	width: 94%;
 	object-fit:cover;
+	display: block;
+	margin: 0 auto;
+	height: 250px;
+	transition: .3s width;
+}
+
+.site-main article .post-thumbnail img:hover{
+	width: 100%;
+	border-bottom: 2px solid gold;
 }
 
 .entry-header h1,
 .entry-header h2{
-
-	margin-top: 0;
+	margin: .15em 0;
 	text-align: center;
+}
+
+.jays-image-post .entry-header h1,
+.jays-image-post .entry-header h2{
+	margin-top: 0;
 }
 
 .entry-header h1 a,
@@ -1071,9 +1102,23 @@ Custom Styles
 }
 
 .entry-content{
-	/*background: rgba( 50, 50, 50, .8);*/
-	color: white;
+	position: relative;
+	padding-top: .5em
+}
+
+.entry-content:before{
+	position: absolute;
+	top: 0;
+	left: 42%;
+	content:'';
+	width: 16%;
+	height: 0;
+	border-top: 2px solid #505050;
+}
+
+.jays-image-post .entry-content{
 	background: rgba( 50, 50, 50, .8);
+	color: white;
 	width: 90%;
 	margin: 0 auto;
 	padding: 0 .5em;
