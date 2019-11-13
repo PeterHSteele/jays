@@ -25,25 +25,35 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'jays' ); ?></a>
 
 	<header id="masthead" class="site-header">
+		<div class="masthead-flex-container">
 		<div class="site-branding">
 			<?php
-			the_custom_logo();
+			if ( has_custom_logo() ){
+				the_custom_logo();
+			}
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
-			else :
+			/*else :
 				?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
+				<?php*/
 			endif;
 			$jays_description = get_bloginfo( 'description', 'display' );
 			if ( $jays_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $jays_description; /* WPCS: xss ok. */ ?></p>
+				<!--<p class="site-description"><?php echo $jays_description; /* WPCS: xss ok. */ ?></p>-->
 			<?php endif; ?>
 		</div><!-- .site-branding -->
-
+	<?php if ( is_home() && is_front_page() ){
+		/*get_search_form();*/
+	}
+	?>
+	<div class="navigation-container">
+		<div class="nav-search-control">
+			<button><i class="fas fa-search fa-2x"></i></button>
+		</div><!--.nav-search-->
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'jays' ); ?></button>
 			<?php
@@ -53,6 +63,13 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+	</div>
+	</div><!--.masthead-flex-container-->
+	<div class="nav-search">
+		<?php get_search_form(array(
+			'aria-label'  => 'Top of page search'
+		)); ?>
+	</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
