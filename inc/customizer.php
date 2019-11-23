@@ -25,6 +25,19 @@ function jays_customize_register( $wp_customize ) {
 			'render_callback' => 'jays_customize_partial_blogdescription',
 		) );
 	}
+
+	$wp_customize->add_setting( 'jays-copyright', array(
+		'default' => 0
+	) );
+
+	$wp_customize->add_control( 'jays-copyright', array(
+		'type' => 'number',
+		'label' => __( 'Copyright Date', 'jays' ),
+		'section' => 'title_tagline',
+		'input_attrs' => array(
+			'placeholder' => '2019'
+		)
+	));
 }
 add_action( 'customize_register', 'jays_customize_register' );
 

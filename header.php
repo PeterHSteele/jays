@@ -25,7 +25,6 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'jays' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="masthead-flex-container">
 		<div class="site-branding">
 			<?php
 			if ( has_custom_logo() ){
@@ -50,12 +49,13 @@
 		/*get_search_form();*/
 	}
 	?>
-	<div class="navigation-container">
+	<div class="nav-container">
 		<div class="nav-search-control">
-			<button><i class="fas fa-search fa-2x"></i></button>
-		</div><!--.nav-search-->
+			<button class="search-toggle"><i class="fas fa-search"></i></button>
+			<button id="menu-toggle" class="menu-toggle" ><i class="fas fa-bars"></i></button>
+		</div><!--.nav-control-->
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'jays' ); ?></button>
+			<!--<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'jays' ); ?></button>-->
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
@@ -64,7 +64,6 @@
 			?>
 		</nav><!-- #site-navigation -->
 	</div>
-	</div><!--.masthead-flex-container-->
 	<div class="nav-search">
 		<?php get_search_form(array(
 			'aria-label'  => 'Top of page search'

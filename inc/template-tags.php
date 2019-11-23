@@ -165,3 +165,24 @@ if (! function_exists( 'jays_background_image' ) ) :
 		);
 	}
 endif;
+
+if( ! function_exists( 'jays-copyright-date' ) ){
+	/**
+	* Prints copyright date to footer
+	*
+	*/
+
+	function jays_copyright_date(){
+		$date = get_theme_mod( 'jays-copyright' );
+		$copyright = '';
+		
+		if( $date ){
+			$copyright = sprintf( 
+				'<span class="sep"> | </span><span class="copyright">&copy%s</span>',
+				esc_html( $date )
+			);
+		}
+	
+		echo $copyright;
+	}
+}
