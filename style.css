@@ -1065,12 +1065,16 @@ body{
 .site-main{
 	display: flex;
 	flex-flow: row wrap;
-	background: #eee;
 }
 
-.site-main article{
+.site-main article,
+.site-main > section{
 	margin: .5%;
 	flex: 1 0 32.33%;
+}
+
+.entry-meta{
+	font-size: .9em;
 }
 
 /* Comments */
@@ -1168,6 +1172,11 @@ Custom Styles
 	color: midnightblue;
 }
 
+.nav-search-control button:hover{
+	background: #fbf063;
+	border: 2px solid #fbf063;
+}
+
 .nav-search-control:after{
 	clear:both;
 	content:'';
@@ -1203,12 +1212,13 @@ Custom Styles
 /* Content */
 
 	/* Posts  Index*/
-
-
+.site-main{
+	padding-top: .5em;
+	background: #eee;
+}
 
 .site-main article{
 	padding: 0 .5em;
-
 	background: white;
 }
 
@@ -1344,6 +1354,27 @@ Custom Styles
 	height: auto;
 }
 
+/* 404 */
+
+.error-404 h2{
+	color: #404040;
+}
+
+.error-404 a{
+	color: midnightblue;
+}
+
+.error-404 ul,
+.error-404 .widget{
+	color: #404040;
+}
+
+.error-404 .widget{
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+}
+
 /* Comments */
 
 
@@ -1429,6 +1460,7 @@ Custom Styles
 .page .site-main .post-thumbnail img{
 	height: auto;
 	width: auto;
+	max-width: 100%;
 }
 
 .page .site-main .post-thumbnail img:hover{
@@ -1572,5 +1604,10 @@ Custom Styles
 
 	.site-footer .widget{
 		flex: 1 0 100%;
+	}
+
+	.single article{
+		padding-left: 4%;
+		padding-right: 4%;
 	}
 }
